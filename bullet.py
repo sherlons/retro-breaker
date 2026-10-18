@@ -1,16 +1,9 @@
 import pygame
-
 class Bullet:
-    def __init__(self, x, y, direction=1):
-        self.x = x
-        self.y = y
-        self.width = 15
-        self.height = 5
-        self.speed = 10 * direction
-        self.color = (255, 255, 0)
-
-    def update(self):
-        self.x += self.speed
-
+    def __init__(self, x, y, lane):
+        self.x = x; self.y = y; self.lane = lane
+        self.width = 20; self.height = 8
+        self.speed = 12
+    def update(self): self.x += self.speed
     def draw(self, screen, camera_x):
-        pygame.draw.rect(screen, self.color, (self.x - camera_x, self.y, self.width, self.height))
+        pygame.draw.rect(screen, (255,255,0), (self.x - camera_x, self.y - 10, self.width, self.height))
